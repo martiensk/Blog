@@ -6,4 +6,7 @@ Vue.use(Vuetify);
 
 export default new Vuetify({
   preset,
+  icons: {
+    iconfont: "mdiSvg"
+  }
 });

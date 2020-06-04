@@ -1,32 +1,93 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      :collapse="!collapseOnScroll"
-      :collapse-on-scroll="collapseOnScroll"
-      scroll-target="content"
-      scroll-threshold="500"
-      dark
+    <v-app
+        id="scroll-target"
+        style="flex-grow: 1; max-height: 100%;"
+        class="overflow-y-auto"
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-app-bar
+            :collapse="hasScrolled"
+            color="primary"
+            fixed
+            dark
+            dense
+            class="display-2 bold"
+            @click="drawer = hasScrolled ? true : drawer"
+        >
+            <v-icon v-if="hasScrolled">{{ icon }}</v-icon>
+            <template v-else>
+                <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+                <v-toolbar-title>The JavaScriptor</v-toolbar-title>
+            </template>
 
-      <v-spacer></v-spacer>
-    </v-app-bar>
+            <v-spacer></v-spacer>
 
-    <v-content id="content">
-      <router-view />
-      <div style="height:1000px"></div>
-    </v-content>
-  </v-app>
+            <v-app-bar-nav-icon
+                @click.stop="drawer = true"
+                v-if="hasScrolled"
+            ></v-app-bar-nav-icon>
+        </v-app-bar>
+        <v-navigation-drawer v-model="drawer" fixed temporary>
+            <v-list-item>
+                <v-list-item-icon>
+                    <v-icon>{{ icon }}</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                    <v-list-item-title
+                        class="fonter"
+                        style="font-size: 1.25rem;"
+                        >The JavaScriptor</v-list-item-title
+                    >
+                </v-list-item-content>
+            </v-list-item>
+
+            <v-divider light inset></v-divider>
+
+            <Nav />
+        </v-navigation-drawer>
+        <v-content id="content">
+            <v-toolbar flat dense></v-toolbar>
+            <router-view />
+            <div style="height: 1000px;"></div>
+        </v-content>
+        <v-progress-linear
+            :value="scrollPercentage"
+            fixed
+            bottom
+        ></v-progress-linear>
+    </v-app>
 </template>
-
 <script>
-export default {
-  name: "App",
+    import { mdiCodeJson } from '@mdi/js';
+    import Nav from './components/Nav';
 
-  data: () => ({
-    collapseOnScroll: true
-  }),
-};
+    export default {
+        name: 'App',
+
+        data: () => ({
+            hasScrolled: false,
+            scrollPercentage: 0,
+            drawer: false,
+            icon: mdiCodeJson
+        }),
+        components: {
+            Nav
+        },
+        methods: {
+            onScroll(e) {
+                this.hasScrolled = window.scrollY > 0;
+                this.scrollPercentage =
+                    (window.scrollY /
+                        (document.body.offsetHeight - window.innerHeight)) *
+                    100;
+            }
+        },
+        created() {
+            window.addEventListener('scroll', this.onScroll);
+        }
+    };
 </script>
+<style lang="scss" scoped>
+    .fonter {
+        font-family: 'Eczar', sans-serif !important;
+    }
+</style>
