@@ -29,7 +29,7 @@
         <v-navigation-drawer v-model="drawer" fixed temporary>
             <v-list-item>
                 <v-list-item-icon>
-                    <v-icon>{{ icon }}</v-icon>
+                    <v-icon>{{ 'mdi-home' }}</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
                     <v-list-item-title
@@ -47,7 +47,6 @@
         <v-content id="content">
             <v-toolbar flat dense></v-toolbar>
             <router-view />
-            <div style="height: 1000px;"></div>
         </v-content>
         <v-progress-linear
             :value="scrollPercentage"

@@ -1,0 +1,111 @@
+%pseudo-styles {
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+%crt {
+    animation: text-shadow 1.6s infinite;
+
+    &::before {
+        animation: flicker 5s infinite;
+        background-color: darken(#031e11, 4%);
+        z-index: 3;
+
+        @extend %pseudo-styles;
+    }
+
+    &::after {
+        background: linear-gradient(rgba(18, 16, 16, 0.2) 50%, rgba(90, 90, 90, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        background-size: 100% 4px, 10px 100%;
+        z-index: 3;
+
+        @extend %pseudo-styles;
+    }
+}
+
+$_flickers: 7;
+$_keyFrame: 0;
+$_op: 0.1;
+@keyframes flicker {
+
+    @for $i from 0 through $_flickers {
+        @if($i == $_flickers or $i == 0) {
+          @if($i == $_flickers) {
+            100% {
+              opacity: 0;
+            }
+          }
+          @else {
+            0% {
+              opacity: 0;
+            }
+          }
+        }
+        @else {
+          $_keyFrame: $i * (1 / $_flickers) + (random() / 10);
+          $_op: random(30) / 100;
+          #{percentage($_keyFrame)} {
+              opacity: $_op;
+          }
+          #{percentage($_keyFrame + 0.01)} {
+              opacity: $_op;
+          }
+        }
+    }
+}
+
+$_steps: 20;
+
+@keyframes text-shadow {
+
+    @for $i from 0 through $_steps {
+        
+        #{percentage($i * (1 / $_steps))} {
+            $blue: random() * 6;
+            $red: random() * -6;
+            text-shadow: #{$blue}px 0 1px rgba(0, 30, 255, 0.5), #{$red}px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+        }
+    }
+}
+
+@keyframes glitch {
+    
+    0% {
+        filter: brightness(30);
+        opacity: 1;
+        transform: scale(1, 0.8) translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: scale(1, 0.8) translate3d(0, 100%, 0);
+    }
+    
+    26% {
+        opacity: 1;
+        transform: scale(1, 0.8) translate3d(0, -100%, 0);
+    }
+    
+    60% {
+        filter: brightness(30);
+        opacity: 0;
+        transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
+    }
+    
+    80% {
+        filter: contrast(0) brightness(0);
+        opacity: 0;
+        transform: scale(1, 1) translate3d(0, 0, 0);
+    }
+    
+    90% {
+        filter: contrast(1) brightness(1.2) saturate(1.3);
+        opacity: 1;
+        transform: scale(1, 1) translate3d(0, 0, 0);
+    }
+}
