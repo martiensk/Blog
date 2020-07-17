@@ -80,6 +80,9 @@
 <style lang="scss" scoped>
     article {
         margin: 8px;
+        max-width: 1000px;
+        display: block;
+        margin: 0 auto;
     }
 
     p,

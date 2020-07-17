@@ -1,15 +1,15 @@
 <template>
-    <hello-world />
+    <NavGrid />
 </template>
 
 <script>
-    import HelloWorld from '../components/HelloWorld';
+    import NavGrid from '../components/NavGrid';
 
     export default {
         // name: 'Home',
 
         components: {
-            HelloWorld
+            NavGrid
         }
     };
 </script>

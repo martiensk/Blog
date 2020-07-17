@@ -16,7 +16,7 @@
             <v-icon v-if="hasScrolled">{{ icon }}</v-icon>
             <template v-else>
                 <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-                <v-toolbar-title>The JavaScriptor</v-toolbar-title>
+                <v-toolbar-title  @click="$router.push('/')">The JavaScriptor</v-toolbar-title>
             </template>
 
             <v-spacer></v-spacer>
