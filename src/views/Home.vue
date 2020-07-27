@@ -6,8 +6,7 @@
     import NavGrid from '../components/NavGrid';
 
     export default {
-        // name: 'Home',
-
+        name: 'Home',
         components: {
             NavGrid
         }

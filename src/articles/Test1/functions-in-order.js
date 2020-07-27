@@ -3,7 +3,7 @@ import Type from '../types';
 export const FunctionsInOrder = [
     {
         type: Type.Heading,
-        heading: 'Lorem Ipsum',
+        heading: 'Functions in Order',
         subheading: 'dolor sit amet'
     },
     {

@@ -2,6 +2,11 @@ import Type from '../types';
 
 export const Test2Article = [
     {
+        type: Type.Heading,
+        heading: 'Test 2 Article',
+        subheading: 'consectetur adipiscing elit'
+    },
+    {
         type: Type.Paragraph,
         text:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tortor massa, fermentum ut pellentesque at, dictum ut augue. Sed nisi erat, tincidunt non tempus vel, auctor eget metus. Ut condimentum ante iaculis est congue eleifend. Vivamus at tempus nibh. Fusce eleifend sodales metus id ullamcorper. Proin eu hendrerit tortor. Vestibulum eget mollis neque. Proin faucibus lacus lacus, in ultricies eros tincidunt a. Vestibulum ultrices magna turpis, pretium venenatis diam tincidunt condimentum. Fusce ac orci condimentum, consectetur ligula nec, egestas est. Sed placerat nibh id tortor iaculis, cursus sollicitudin nisl egestas. Aenean mi leo, gravida ut velit id, tempus porta risus. Proin posuere dolor vitae suscipit egestas. Etiam venenatis purus quis mi dictum, et tincidunt dui congue.'

@@ -48,6 +48,7 @@
             <v-toolbar flat dense></v-toolbar>
             <router-view />
         </v-content>
+        <NavGrid v-if="$route.name !== 'home'" :hide="true" />
         <v-progress-linear
             :value="scrollPercentage"
             fixed
@@ -58,6 +59,7 @@
 <script>
     import { mdiCodeJson } from '@mdi/js';
     import Nav from './components/Nav';
+    import NavGrid from './components/NavGrid';
 
     export default {
         name: 'App',
@@ -69,7 +71,8 @@
             icon: mdiCodeJson
         }),
         components: {
-            Nav
+            Nav,
+            NavGrid
         },
         methods: {
             onScroll(e) {
