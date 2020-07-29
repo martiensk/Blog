@@ -30,7 +30,7 @@
 </template>
 <script>
     import * as Articles from '../articles/export';
-    import Type from '../articles/types';
+    import { type as Type } from '../articles/types';
     import Heading from '../components/Heading';
     import ImageParagraph from '../components/ImageParagraph';
     import Code from '../components/Code';

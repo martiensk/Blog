@@ -8,10 +8,14 @@
                 offset="20"
                 tag="li"
             >
-                <router-link :to="child.url" :title="child.name" :class="'nav-card'">
-                        <span>{{ child.heading }}</span>
-                        <hr />
-                        <span>{{ child.subheading }}</span>
+                <router-link
+                    :to="child.url"
+                    :title="child.name"
+                    :class="'nav-card'"
+                >
+                    <span>{{ child.heading }}</span>
+                    <hr />
+                    <span>{{ child.subheading }}</span>
                 </router-link>
             </v-col>
         </v-row>
@@ -20,7 +24,7 @@
 <script>
     import { Articles } from '../articles/export';
     import { routes } from '../navigation';
-    import types, { type } from '../articles/types';
+    import { type as types } from '../articles/types';
 
     export default {
         name: 'NavGrid',
@@ -42,7 +46,7 @@
                         ][route.children[i].name.replace(/\s+/g, '')].filter(
                             (x) => x.type === types.Heading
                         );
-                        if (snippet.length !== 1) {
+                        if (snippet.length === 0) {
                             console.warn(
                                 `Inconsistent headings found for article "${route.name}/${route.children[i].name}"`
                             );

@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>{{ heading }}</h1>
-        <h2 v-if="subheading">{{ subheading }}</h2>
+        <h3 v-if="subheading">{{ subheading }}</h3>
     </div>
 </template>
 <script>
@@ -19,3 +19,8 @@
         }
     };
 </script>
+<style lang="scss" scoped>
+    h1 {
+        margin: 16px 0;
+    }
+</style>

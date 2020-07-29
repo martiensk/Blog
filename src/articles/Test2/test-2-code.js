@@ -1,4 +1,4 @@
-import Type from '../types';
+import { type as Type } from '../types';
 
 export const Test2Code = [
     {
