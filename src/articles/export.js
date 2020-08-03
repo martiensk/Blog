@@ -1,5 +1,4 @@
-import * as Test1 from './Test1/index';
-import * as Test2 from './Test2/index';
 import * as DesignPatterns from './DesignPatterns/index';
+import * as TipsAndTricks from './TipsAndTricks/index';
 
-export const Articles = { Test1, Test2, DesignPatterns };
+export const Articles = { DesignPatterns, TipsAndTricks };

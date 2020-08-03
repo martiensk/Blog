@@ -25,6 +25,20 @@
                 :sourcecode="bit.text"
                 :language="bit.language"
             />
+            <TitledParagraph
+                v-if="bit.type === Type.TitledParagraph"
+                :key="index"
+                :heading="bit.heading"
+                :text="bit.text"
+            />
+            <TitledCodeParagraph
+                v-if="bit.type === Type.TitledCodeParagraph"
+                :key="index"
+                :heading="bit.heading"
+                :text="bit.text"
+                :sourcecode="bit.source"
+                :language="bit.language"
+            />
         </template>
     </article>
 </template>
@@ -34,6 +48,8 @@
     import Heading from '../components/Heading';
     import ImageParagraph from '../components/ImageParagraph';
     import Code from '../components/Code';
+    import TitledParagraph from '../components/TitledParagraph';
+    import TitledCodeParagraph from '../components/TitledCodeParagraph';
 
     export default {
         name: 'Article',
@@ -68,7 +84,9 @@
         components: {
             Heading,
             ImageParagraph,
-            Code
+            Code,
+            TitledParagraph,
+            TitledCodeParagraph
         },
         mounted() {
             if (this.article === null) {
@@ -79,10 +97,10 @@
 </script>
 <style lang="scss" scoped>
     article {
-        margin: 8px;
         max-width: 1000px;
         display: block;
         margin: 0 auto;
+        padding-bottom: 20px;
     }
 
     p,

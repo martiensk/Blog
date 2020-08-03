@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>{{ language }}</h3>
+        <h4>{{ language }}</h4>
         <pre>
             <code ref="code" :class="language">{{sourcecode}}</code>
         </pre>
@@ -39,7 +39,7 @@
         background: #282c34;
         width: 100%;
     }
-    h3 {
-        text-transform: uppercase;
+    h4 {
+        font-style: italic;
     }
 </style>

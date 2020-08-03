@@ -3,9 +3,11 @@ export const type = {
     ParagraphImageLeft: 'paragraph-img-l',
     Code: 'code',
     List: 'list',
-    Heading: 'heading'
+    Heading: 'heading',
+    TitledParagraph: 'titled-paragraph',
+    TitledCodeParagraph: 'title-code-paragraph'
 };
 
 export const lang = {
-    JavaScript: 'javascript'
+    JavaScript: 'JavaScript'
 };
