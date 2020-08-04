@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev-build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "ssr:build": "vue-cli-service ssr:build",
+    "build": "vue-cli-service ssr:build",
     "ssr:serve": "vue-cli-service ssr:serve",
     "start": "cross-env NODE_ENV=production vue-cli-service ssr:serve --mode production"
   },
