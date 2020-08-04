@@ -1,6 +1,6 @@
 <template>
     <v-app
-        id="scroll-target"
+        id="app"
         style="flex-grow: 1; max-height: 100%;"
         class="overflow-y-auto"
     >
@@ -86,7 +86,8 @@
             }
         },
         created() {
-            window.addEventListener('scroll', this.onScroll);
+            typeof window !== 'undefined' &&
+                window.addEventListener('scroll', this.onScroll);
         }
     };
 </script>

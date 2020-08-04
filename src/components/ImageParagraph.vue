@@ -26,7 +26,7 @@
                     this.image = img.default;
                 })
                 .catch((err) => {
-                    console.log(err);
+                    console.error(err);
                     this.$routes.push('/404');
                 });
         }

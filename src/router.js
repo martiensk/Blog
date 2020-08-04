@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+import Article from './views/Article.vue';
+import About from './views/About.vue';
+import FourOFour from './views/FourOFour.vue';
 
 Vue.use(Router);
 
@@ -17,24 +20,17 @@ export function createRouter() {
             {
                 path: '/about',
                 name: 'about',
-                component: () =>
-                    import(/* webpackChunkName: "about" */ './views/About.vue')
+                component: About
             },
             {
                 path: '/:category/:article',
                 name: 'article',
-                component: () =>
-                    import(
-                        /* webpackChunkName: "about" */ './views/Article.vue'
-                    )
+                component: Article
             },
             {
                 path: '*',
                 name: '404',
-                component: () =>
-                    import(
-                        /* webpackChunkName: "about" */ './views/FourOFour.vue'
-                    )
+                component: FourOFour
             }
         ]
     });

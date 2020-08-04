@@ -102,5 +102,9 @@
                 font-weight: 900;
             }
         }
+
+        hr {
+            border-color: #1eb980;
+        }
     }
 </style>
