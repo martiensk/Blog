@@ -10,7 +10,8 @@
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service ssr:build",
     "ssr:serve": "vue-cli-service ssr:serve",
-    "start": "cross-env NODE_ENV=production vue-cli-service ssr:serve --mode production"
+    "start": "vue-cli-service ssr:serve --mode production",
+    "ssr:start": "cross-env NODE_ENV=production vue-cli-service ssr:serve --mode production"
   },
   "dependencies": {
     "core-js": "^3.6.5",
